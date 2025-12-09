@@ -479,7 +479,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 552678384}
   m_Direction: 2
   m_MinValue: 0.2
-  m_MaxValue: 3
+  m_MaxValue: 1
   m_WholeNumbers: 0
   m_Value: 0.2
   m_OnValueChanged:
@@ -1192,8 +1192,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97119f36b6fec3c499413e9ea03d1a7d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  width: 300
-  height: 300
+  width: 150
+  height: 150
   cellPrefab: {fileID: 1721774188396112246, guid: 61996f11130c939419b8d00730bf8dae, type: 3}
   timeInterval: 0.5
   speedSlider: {fileID: 378231322}

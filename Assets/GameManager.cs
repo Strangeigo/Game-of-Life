@@ -3,6 +3,8 @@ using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.EventSystems;
+
 public class GameManager : MonoBehaviour
 {
     [SerializeField] private int width = 50;
@@ -127,12 +129,15 @@ public class GameManager : MonoBehaviour
 
     private void HandleInput()
     {
+        // Prevent grid interaction when clicking UI
+        if (EventSystem.current.IsPointerOverGameObject())
+            return;
+
         if (Input.GetMouseButton(0))
         {
             Vector2 mousePos = mainCamera.ScreenToWorldPoint(Input.mousePosition);
             Vector2Int gridPos = new Vector2Int(Mathf.RoundToInt(mousePos.x), Mathf.RoundToInt(mousePos.y));
 
-            // Only act if we're inside the grid and over a new cell
             if (grid.TryGetValue(gridPos, out Cell cell))
             {
                 if (lastCellPos == null || lastCellPos != gridPos)
@@ -144,7 +149,6 @@ public class GameManager : MonoBehaviour
         }
         else if (Input.GetMouseButtonUp(0))
         {
-            // Reset when mouse released
             lastCellPos = null;
         }
     }
